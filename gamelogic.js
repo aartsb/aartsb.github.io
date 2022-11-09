@@ -1130,16 +1130,16 @@ class Board extends React.Component {
       }
       else {
          if ((this.state.player1box > this.state.player3box) && (this.state.player1box > this.state.player2box)) {
-            status = "Player 1 wins!"; //link to player 1 html
-            //window.location.href = "./winnerPlayer1.html";
+      
+            window.location.href = "./winnerPlayer1.html";
          }
          else if ((this.state.player2box > this.state.player1box) && (this.state.player2box > this.state.player3box)) {
-            status = "Player 2 wins!"; //link to player 2 html
-            //window.location.assign("./winnerPlayer2.html"); 
+
+            window.location.assign("./winnerPlayer2.html"); 
          }
          else if ((this.state.player3box > this.state.player1box) && (this.state.player3box > this.state.player2box)) {
-            status = "Player 3 wins!"; //link to player 3 html 
-            //window.location.href = "./winnerPlayer3.html";
+  
+            window.location.href = "./winnerPlayer3.html";
          }
          else {
             status = "It's a tie!";
