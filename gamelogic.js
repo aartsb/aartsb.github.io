@@ -1088,11 +1088,11 @@ class Board extends React.Component {
          // third row
          for (var y = 0; y < 4; y++) {
             row2.push(<input type="button" className="dot" onClick={this.handleDotClick} x={2} y={y} />)
-            var idV = "1 " + "2 " + y + " v";   // row2(up), row2(down), index, indicator
+            var idV = "1 " + "2 " + y + " v";  
             row2.push(<span className="downPer" id={idV}></span>)
             var idS = "1 " + y;  // row-1, index;
             row2.push(<span className="square" id={idS}></span>)
-            var idH = "2 " + y + " " + (y + 1);   // row, dot1(left), dot2(right)
+            var idH = "2 " + y + " " + (y + 1);  
             row2.push(<span className="acrossPer" id={idH}></span>)
          }
          row2.pop();
@@ -1101,11 +1101,11 @@ class Board extends React.Component {
          // forth row
          for (var y = 0; y < 4; y++) {
             row3.push(<input type="button" className="dot" onClick={this.handleDotClick} x={3} y={y} />)
-            var idV = "2 " + "3 " + y + " v";   // row3(up), row3(down), index, indicator
+            var idV = "2 " + "3 " + y + " v";   
             row3.push(<span className="downPer" id={idV}></span>)
-            var idS = "2 " + y;  // row-1, index;
+            var idS = "2 " + y;  
             row3.push(<span className="square" id={idS}></span>)
-            var idH = "3 " + y + " " + (y + 1);   // row, dot1(left), dot2(right)
+            var idH = "3 " + y + " " + (y + 1);  
             row3.push(<span className="acrossPer" id={idH}></span>)
          }
          row3.pop();
@@ -1144,6 +1144,7 @@ class Board extends React.Component {
          else {
             status = "It's a tie!";
             //window.location.assign("./tie.html"); 
+            alert("It's a tie!");
          }
       }
 
