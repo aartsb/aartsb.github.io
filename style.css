@@ -36,21 +36,21 @@ body {
 }
 
 .button {
-        display: inline-block;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        color: #ffffff;
-        background-color: #7aa8b7;
-        border-radius: 6px;
-        outline: none;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .button:hover {
-   cursor: pointer;
-   background-color: #eddea1!important;
+    background-color: #eddea1;
 }
-
 
 .board-row-top {
    width: 80%;
