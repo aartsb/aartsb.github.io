@@ -35,6 +35,23 @@ body {
    font-size: large;
 }
 
+.button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #7aa8b7;
+        border-radius: 6px;
+        outline: none;
+}
+
+.button:hover {
+   cursor: pointer;
+   background-color: #eddea1!important;
+}
+
+
 .board-row-top {
    width: 80%;
    margin-left: auto;
@@ -195,7 +212,7 @@ body {
 
 .dot:hover {
    cursor: pointer;
-   background-color: #f1f1f1!important;
+   background-color: #c8c6c6;
 }
 
 .dot-white:focus {
