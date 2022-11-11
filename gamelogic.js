@@ -1144,7 +1144,6 @@ class Board extends React.Component {
          else {
             status = "It's a tie!";
             //window.location.assign("./tie.html"); 
-            alert("It's a tie!");
          }
       }
 
