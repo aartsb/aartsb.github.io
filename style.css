@@ -6,10 +6,13 @@ body {
     color: #190934;
 }
 
-.background-img {
-  background-image: "../images/DotsAndBoxes.png";
-  background-repeat: repeat;
-  opacity: 0.5;
+.showcase {
+    position: relative;
+    background-repeat: repeat;
+}
+
+.bg-image {
+    opacity: 0.5;
 }
 
 .th {
