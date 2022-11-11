@@ -6,17 +6,9 @@ body {
     color: #190934;
 }
 
-body-index-winners {
-    margin: 0;
-    font-family: 'Lucida', sans-serif;
-    background-color: #ebdf5e40;
-    overflow: auto;
-    color: #190934;
-}
-
-img {
-    display: block;
-    width: 50%;
+.background-img {
+  background-image: "../images/DotsAndBoxes.png";
+  background-repeat: repeat;
 }
 
 .th {
