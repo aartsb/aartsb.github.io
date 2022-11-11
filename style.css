@@ -9,6 +9,7 @@ body {
 .background-img {
   background-image: "../images/DotsAndBoxes.png";
   background-repeat: repeat;
+  opacity: 0.5;
 }
 
 .th {
