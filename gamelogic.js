@@ -13,146 +13,146 @@ class Board extends React.Component {
       generateBoard: true
    };
 
-   checkFromRight = (j, k) => {
-      var boxMade = false;
+   makeAcrossone = (j, k) => {
       var lines = 2;
-      var upId = j + " " + k + " " + (k + 1);
-      var topLine = document.getElementById(upId);
-      if (topLine != null && topLine.className != "acrossPer") {
+      var gridPartdone = false;
+      var topid = j + " " + k + " " + (k + 1);
+      var vert = document.getElementById(topid);
+      if (vert != null && vert.className != "acrossPer") {
          lines++;
       }
-      var botId = (j + 1) + " " + k + " " + (k + 1);
-      var botLine = document.getElementById(botId);
-      if (botLine != null && botLine.className != "acrossPer") {
+      var downid = (j + 1) + " " + k + " " + (k + 1);
+      var vertdown = document.getElementById(downid);
+      if (vertdown != null && vertdown.className != "acrossPer") {
          lines++;
       }
       if (lines == 4) {
-         boxMade = true;
-         var boxId = j + " " + k;
+         gridPartdone = true;
+         var gridPartid = j + " " + k;
 
          if (this.state.player % 3 == 0) {
-            document.getElementById(boxId).className = "boxPlay1";
+            document.getElementById(gridPartid).className = "boxPlay1";
             this.setState({ player1box: this.state.player1box + 1 });
          }
          else if (this.state.player % 3 == 1) {
-            document.getElementById(boxId).className = "boxPlay2";
+            document.getElementById(gridPartid).className = "boxPlay2";
             this.setState({ player2box: this.state.player2box + 1 });
          }
          else {
-            document.getElementById(boxId).className = "boxPlay3";
+            document.getElementById(gridPartid).className = "boxPlay3";
             this.setState({ player3box: this.state.player3box + 1 });
          }
       }
-      return boxMade;
+      return gridPartdone;
    }
 
-   checkFromLeft = (j, k) => {
-      var boxMade = false;
+   makeAcrosstwo = (j, k) => {
+      var gridPartdone = false;
       var lines = 2;
-      var upId = j + " " + (k - 1) + " " + k;
-      var topLine = document.getElementById(upId);
-      if (topLine != null && topLine.className != "acrossPer") {
+      var topid = j + " " + (k - 1) + " " + k;
+      var vert = document.getElementById(topid);
+      if (vert != null && vert.className != "acrossPer") {
          lines++;
       }
-      var botId = (j + 1) + " " + (k - 1) + " " + k;
-      var botLine = document.getElementById(botId);
-      if (botLine != null && botLine.className != "acrossPer") {
+      var downid = (j + 1) + " " + (k - 1) + " " + k;
+      var vertdown = document.getElementById(downid);
+      if (vertdown != null && vertdown.className != "acrossPer") {
          lines++;
       }
       if (lines == 4) {
-         boxMade = true;
-         var boxId = j + " " + (k - 1);
+         gridPartdone = true;
+         var gridPartid = j + " " + (k - 1);
 
          if (this.state.player % 3 == 0) {
-            document.getElementById(boxId).className = "boxPlay1";
+            document.getElementById(gridPartid).className = "boxPlay1";
             this.setState({ player1box: this.state.player1box + 1 });
          }
          else if (this.state.player % 3 == 1) {
-            document.getElementById(boxId).className = "boxPlay2";
+            document.getElementById(gridPartid).className = "boxPlay2";
             this.setState({ player2box: this.state.player2box + 1 });
          }
          else {
-            document.getElementById(boxId).className = "boxPlay3";
+            document.getElementById(gridPartid).className = "boxPlay3";
             this.setState({ player3box: this.state.player3box + 1 });
          }
       }
-      return boxMade;
+      return gridPartdone;
    }
 
 
-   checkFromAbove = (j, k) => {
+   makeDownone = (j, k) => {
       var lines = 2;
-      var boxMade = false;
-      var tLeftId = (j - 1) + " " + j + " " + (k - 1) + " v";
-      var tRightId = (j - 1) + " " + j + " " + k + " v";
-      var tLeftLine = document.getElementById(tLeftId);
-      var tRightLine = document.getElementById(tRightId);
+      var gridPartdone = false;
+      var sideoneid = (j - 1) + " " + j + " " + (k - 1) + " v";
+      var sidetwoid = (j - 1) + " " + j + " " + k + " v";
+      var sideonedone = document.getElementById(sideoneid);
+      var sidetwodone = document.getElementById(sidetwoid);
 
-      if (tLeftLine != null && tLeftLine.className != "downPer") {
+      if (sideonedone != null && sideonedone.className != "downPer") {
          lines++;
       }
-      if (tRightLine != null && tRightLine.className != "downPer") {
+      if (sidetwodone != null && sidetwodone.className != "downPer") {
          lines++;
       }
       //box of resp player
       if (lines == 4) {
-         boxMade = true;
-         var boxId = (j - 1) + " " + (k - 1);
+         gridPartdone = true;
+         var gridPartid = (j - 1) + " " + (k - 1);
 
          if (this.state.player % 3 == 0) {
-            document.getElementById(boxId).className = "boxPlay1";
+            document.getElementById(gridPartid).className = "boxPlay1";
             this.setState({ player1box: this.state.player1box + 1 });
          }
          else if (this.state.player % 3 == 1) {
-            document.getElementById(boxId).className = "boxPlay2";
+            document.getElementById(gridPartid).className = "boxPlay2";
             this.setState({ player2box: this.state.player2box + 1 });
          }
          else {
-            document.getElementById(boxId).className = "boxPlay3";
+            document.getElementById(gridPartid).className = "boxPlay3";
             this.setState({ player3box: this.state.player3box + 1 });
          }
       }
-      return boxMade;
+      return gridPartdone;
    }
 
-   checkFromBelow = (j, k) => {
+   makeDowntwo = (j, k) => {
       var lines = 2;
-      var boxMade = false;
-      var bLeftId = j + " " + (j + 1) + " " + (k - 1) + " v";
-      var bRightId = j + " " + (j + 1) + " " + k + " v";
-      var bLeftLine = document.getElementById(bLeftId);
-      var bRightLine = document.getElementById(bRightId);
+      var gridPartdone = false;
+      var sidethreeid = j + " " + (j + 1) + " " + (k - 1) + " v";
+      var sidefourid = j + " " + (j + 1) + " " + k + " v";
+      var sidethreedone = document.getElementById(sidethreeid);
+      var sidefourdone = document.getElementById(sidefourid);
 
-      if (bLeftLine != null && bLeftLine.className != "downPer") {
+      if (sidethreedone != null && sidethreedone.className != "downPer") {
          lines++;
       }
-      if (bRightLine != null && bRightLine.className != "downPer") {
+      if (sidefourdone != null && sidefourdone.className != "downPer") {
          lines++;
       }
 
       //box of the resp player
       if (lines == 4) {
-         boxMade = true;
-         var boxId = j + " " + (k - 1);
+         gridPartdone = true;
+         var gridPartid = j + " " + (k - 1);
 
          if (this.state.player % 3 == 0) {
-            document.getElementById(boxId).className = "boxPlay1";
+            document.getElementById(gridPartid).className = "boxPlay1";
             this.setState({ player1box: this.state.player1box + 1 });
          }
          else if (this.state.player % 3 == 1) {
-            document.getElementById(boxId).className = "boxPlay2";
+            document.getElementById(gridPartid).className = "boxPlay2";
             this.setState({ player2box: this.state.player2box + 1 });
          }
          else {
-            document.getElementById(boxId).className = "boxPlay3";
+            document.getElementById(gridPartid).className = "boxPlay3";
             this.setState({ player3box: this.state.player3box + 1 });
          }
 
       }
-      return boxMade;
+      return gridPartdone;
    }
 
-   updateHorizontalLines = (row, id) => {
+   acrossupdate = (row, id) => {
       if (this.state.player % 3 == 0) {
          document.getElementById(id).className = "acrossPlay1";
       }
@@ -164,7 +164,7 @@ class Board extends React.Component {
       }
    }
 
-   updateVerticalLines = (row, id) => {
+   downupdate = (row, id) => {
       if (this.state.player % 3 == 0) {
          document.getElementById(id).className = "downPlay1";
       }
@@ -177,7 +177,7 @@ class Board extends React.Component {
    }
 
 
-   handleDotClick = (e) => {
+   ClickAction = (e) => {
       // if dots not clicked
       if (this.state.dotsClicked == 0) {
          this.setState({ dotsClicked: 1 });
@@ -230,7 +230,7 @@ class Board extends React.Component {
             }
 
             if (legalMove) {
-               this.updateHorizontalLines(row, id);
+               this.acrossupdate(row, id);
             }
          }
 
@@ -252,13 +252,13 @@ class Board extends React.Component {
             var row = x2;
 
             if (legalMove) {
-               this.updateVerticalLines(row, id);
+               this.downupdate(row, id);
             }
          }
 
          //if the box made by the player
          if (legalMove) {
-            var boxMade = false;
+            var gridPartdone = false;
             var id = lineId;
             lineId = lineId.split(" ");
             var a = lineId[0];
@@ -284,16 +284,16 @@ class Board extends React.Component {
                var leftBox = false;
 
                if ((rightLine != null && rightLine.className != "downPer") && (leftLine == null || leftLine.className == "downPer")) {
-                  rightBox = this.checkFromRight(j, k);
+                  rightBox = this.makeAcrossone(j, k);
                }
 
                else if ((leftLine != null && leftLine.className != "downPer") && (rightLine == null || rightLine.className == "downPer")) {
-                  leftBox = this.checkFromLeft(j, k);
+                  leftBox = this.makeAcrosstwo(j, k);
                }
 
                else if (leftLine != null && rightLine != null && leftLine.className != "downPer" && rightLine.className != "downPer") {
-                  rightBox = this.checkFromRight(j, k);
-                  leftBox = this.checkFromLeft(j, k);
+                  rightBox = this.makeAcrossone(j, k);
+                  leftBox = this.makeAcrosstwo(j, k);
                }
 
                // no rectangles check (vertical)
@@ -316,14 +316,14 @@ class Board extends React.Component {
                var botBox = false;
 
                if ((aboveLine != null && aboveLine.className != "acrossPer") && (belowLine == null || belowLine.className == "acrossPer")) {
-                  topBox = this.checkFromAbove(j, k);
+                  topBox = this.makeDownone(j, k);
                }
                else if ((belowLine != null && belowLine.className != "acrossPer") && (aboveLine == null || aboveLine.className == "acrossPer")) {
-                  botBox = this.checkFromBelow(j, k);
+                  botBox = this.makeDowntwo(j, k);
                }
                else if (aboveLine != null && belowLine != null && aboveLine.className != "acrossPer" && belowLine.className != "acrossPer") {
-                  topBox = this.checkFromAbove(j, k);
-                  botBox = this.checkFromBelow(j, k);
+                  topBox = this.makeDownone(j, k);
+                  botBox = this.makeDowntwo(j, k);
                }
 
                // no rectangles check (across)
@@ -347,18 +347,18 @@ class Board extends React.Component {
                var k1 = k;
                var case3 = true;
 
-               var endId1Buffer = (j + 1) + " " + b + " " + c;
-               var endLine1Buffer = document.getElementById(endId1Buffer);
+               var checkBone = (j + 1) + " " + b + " " + c;
+               var checkBonepart = document.getElementById(checkBone);
                var rectangle = true;
-               if (endLine1Buffer != null && endLine1Buffer.className == "acrossPer") {
-                  while (endLine1Buffer != null && endLine1Buffer.className == "acrossPer" && rectangle) {
-                     var endId1Buffer = (j + 1) + " " + b + " " + c;
-                     var endLine1Buffer = document.getElementById(endId1Buffer);
-                     var tLeftId = j + " " + (j + 1) + " " + (k - 1) + " v";
-                     var tRightId = j + " " + (j + 1) + " " + k + " v";
-                     var tLeftLine = document.getElementById(tLeftId);
-                     var tRightLine = document.getElementById(tRightId);
-                     if (tLeftLine == null || tLeftLine.className == "downPer" || tRightLine == null || tRightLine.className == "downPer") {
+               if (checkBonepart != null && checkBonepart.className == "acrossPer") {
+                  while (checkBonepart != null && checkBonepart.className == "acrossPer" && rectangle) {
+                     var checkBone = (j + 1) + " " + b + " " + c;
+                     var checkBonepart = document.getElementById(checkBone);
+                     var sideoneid = j + " " + (j + 1) + " " + (k - 1) + " v";
+                     var sidetwoid = j + " " + (j + 1) + " " + k + " v";
+                     var sideonedone = document.getElementById(sideoneid);
+                     var sidetwodone = document.getElementById(sidetwoid);
+                     if (sideonedone == null || sideonedone.className == "downPer" || sidetwodone == null || sidetwodone.className == "downPer") {
                         rectangle = false;
                      }
                      j++;
@@ -370,8 +370,8 @@ class Board extends React.Component {
                      var m = parseInt(start[1], 10);
                      for (n; n < j; n++) {
                         if (this.state.player % 3 == 0) {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay1";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay1";
@@ -380,8 +380,8 @@ class Board extends React.Component {
                            }
                         }
                         else if (this.state.player % 3 == 1) {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay2";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay2";
@@ -390,8 +390,8 @@ class Board extends React.Component {
                            }
                         }
                         else {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay3";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay3";
@@ -406,19 +406,19 @@ class Board extends React.Component {
                }
 
                //across condition check
-               endId1Buffer = (j - 1) + " " + b + " " + c;
-               endLine1Buffer = document.getElementById(endId1Buffer);
+               checkBone = (j - 1) + " " + b + " " + c;
+               checkBonepart = document.getElementById(checkBone);
                rectangle = true;
                j = j1;
-               if (endLine1Buffer != null && endLine1Buffer.className == "acrossPer") {
-                  while (endLine1Buffer != null && endLine1Buffer.className == "acrossPer" && rectangle) {
-                     var endId1Buffer = (j - 1) + " " + b + " " + c;
-                     var endLine1Buffer = document.getElementById(endId1Buffer);
-                     var tLeftId = (j - 1) + " " + j + " " + (k - 1) + " v";
-                     var tRightId = (j - 1) + " " + j + " " + k + " v";
-                     var tLeftLine = document.getElementById(tLeftId);
-                     var tRightLine = document.getElementById(tRightId);
-                     if (tLeftLine == null || tLeftLine.className == "downPer" || tRightLine == null || tRightLine.className == "downPer") {
+               if (checkBonepart != null && checkBonepart.className == "acrossPer") {
+                  while (checkBonepart != null && checkBonepart.className == "acrossPer" && rectangle) {
+                     var checkBone = (j - 1) + " " + b + " " + c;
+                     var checkBonepart = document.getElementById(checkBone);
+                     var sideoneid = (j - 1) + " " + j + " " + (k - 1) + " v";
+                     var sidetwoid = (j - 1) + " " + j + " " + k + " v";
+                     var sideonedone = document.getElementById(sideoneid);
+                     var sidetwodone = document.getElementById(sidetwoid);
+                     if (sideonedone == null || sideonedone.className == "downPer" || sidetwodone == null || sidetwodone.className == "downPer") {
                         rectangle = false;
                      }
                      j--;
@@ -430,8 +430,8 @@ class Board extends React.Component {
                      var m = parseInt(start[1], 10);
                      for (n = n - 1; n >= j; n--) {
                         if (this.state.player % 3 == 0) {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay1";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay1";
@@ -440,8 +440,8 @@ class Board extends React.Component {
                            }
                         }
                         else if (this.state.player % 3 == 1) {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay2";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay2";
@@ -450,8 +450,8 @@ class Board extends React.Component {
                            }
                         }
                         else {
-                           var boxId = n + " " + m;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = n + " " + m;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(n + " " + m).className = "boxPlay3";
                               document.getElementById(n + " " + m + " " + (m + 1)).className = "acrossPlay3";
@@ -466,26 +466,26 @@ class Board extends React.Component {
 
                if (case3) {
                   j = j1;
-                  var leftEndBufferId = j + " " + (j + 1) + " " + (k - 1) + " v";
-                  var rightEndBufferId = j + " " + (j + 1) + " " + k + " v";
+                  var sideonepart = j + " " + (j + 1) + " " + (k - 1) + " v";
+                  var sidetwopart = j + " " + (j + 1) + " " + k + " v";
                   var oppositeLineId = (j + 1) + " " + b + " " + c;
                   var currentLineId = id;
                   var leftRectangleCheck = true;
                   var rightRectangleCheck = true;
                   var checkVerticalUp = false;
 
-                  var leftEndBuffer = document.getElementById(leftEndBufferId);
-                  var rightEndBuffer = document.getElementById(rightEndBufferId);
+                  var sidefivepart = document.getElementById(sideonepart);
+                  var sidesixpart = document.getElementById(sidetwopart);
                   var oppositeLine = document.getElementById(oppositeLineId);
                   var currentLine = document.getElementById(currentLineId);
 
                   if (oppositeLine == null || oppositeLine.className == "acrossPer") {
                      checkVerticalUp = true;
-                     leftEndBufferId = (j - 1) + " " + j + " " + (k - 1) + " v";
-                     rightEndBufferId = (j - 1) + " " + j + " " + k + " v";
+                     sideonepart = (j - 1) + " " + j + " " + (k - 1) + " v";
+                     sidetwopart = (j - 1) + " " + j + " " + k + " v";
                      oppositeLineId = (j - 1) + " " + b + " " + c;
-                     leftEndBuffer = document.getElementById(leftEndBufferId);
-                     rightEndBuffer = document.getElementById(rightEndBufferId);
+                     sidefivepart = document.getElementById(sideonepart);
+                     sidesixpart = document.getElementById(sidetwopart);
                      oppositeLine = document.getElementById(oppositeLineId);
                   }
 
@@ -498,11 +498,11 @@ class Board extends React.Component {
                      if (oppositeLine != null && oppositeLine.className != "acrossPer") {
                         while (oppositeLine != null && oppositeLine.className != "acrossPer" &&
                            currentLine != null && currentLine.className != "acrossPer" &&
-                           leftEndBuffer != null && leftEndBuffer.className == "downPer") {
+                           sidefivepart != null && sidefivepart.className == "downPer") {
                            oppositeLineId = (j - 1) + " " + n + " " + m;
                            currentLineId = j + " " + n + " " + m;
-                           leftEndBufferId = (j - 1) + " " + j + " " + (k - 1) + " v";
-                           leftEndBuffer = document.getElementById(leftEndBufferId);
+                           sideonepart = (j - 1) + " " + j + " " + (k - 1) + " v";
+                           sidefivepart = document.getElementById(sideonepart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "acrossPer" || currentLine == null || currentLine.className == "acrossPer") {
@@ -521,11 +521,11 @@ class Board extends React.Component {
                         m = m1;
                         while (oppositeLine != null && oppositeLine.className != "acrossPer" &&
                            currentLine != null && currentLine.className != "acrossPer" &&
-                           rightEndBuffer != null && rightEndBuffer.className == "downPer") {
+                           sidesixpart != null && sidesixpart.className == "downPer") {
                            oppositeLineId = (j - 1) + " " + n + " " + m;
                            currentLineId = j + " " + n + " " + m;
-                           rightEndBufferId = (j - 1) + " " + j + " " + k + " v";
-                           rightEndBuffer = document.getElementById(rightEndBufferId);
+                           sidetwopart = (j - 1) + " " + j + " " + k + " v";
+                           sidesixpart = document.getElementById(sidetwopart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "acrossPer" || currentLine == null || currentLine.className == "acrossPer") {
@@ -542,13 +542,13 @@ class Board extends React.Component {
                      var leftRectangle = false;
                      var rightRectangle = false;
 
-                     if (leftEndBuffer != null && leftEndBuffer.className != "downPer" && leftRectangleCheck) {
+                     if (sidefivepart != null && sidefivepart.className != "downPer" && leftRectangleCheck) {
                         leftRectangle = true;
                      }
                      else {
                         leftRectangle = false;
                      }
-                     if (rightEndBuffer != null && rightEndBuffer.className != "downPer" && rightRectangleCheck) {
+                     if (sidesixpart != null && sidesixpart.className != "downPer" && rightRectangleCheck) {
                         rightRectangle = true;
                      }
                      else {
@@ -556,17 +556,17 @@ class Board extends React.Component {
                      }
 
                      if (leftRectangle && rightRectangle) {
-                        var startId = leftEndBufferId.split(" ");
+                        var startId = sideonepart.split(" ");
                         var i = parseInt(startId[2], 10);
-                        var endId = rightEndBufferId.split(" ");
+                        var endId = sidetwopart.split(" ");
                         var j = parseInt(endId[2], 10);
                         var boxesMade = 0;
                         if (this.state.player % 3 == 0) {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay1";
+                                 document.getElementById(gridPartid).className = "boxPlay1";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay1";
@@ -576,10 +576,10 @@ class Board extends React.Component {
                         }
                         else if (this.state.player % 3 == 1) {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay2";
+                                 document.getElementById(gridPartid).className = "boxPlay2";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay2";
@@ -589,10 +589,10 @@ class Board extends React.Component {
                         }
                         else {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay3";
+                                 document.getElementById(gridPartid).className = "boxPlay3";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay3";
@@ -614,11 +614,11 @@ class Board extends React.Component {
 
                         while (oppositeLine != null && oppositeLine.className != "acrossPer" &&
                            currentLine != null && currentLine.className != "acrossPer" &&
-                           leftEndBuffer != null && leftEndBuffer.className == "downPer") {
+                           sidefivepart != null && sidefivepart.className == "downPer") {
                            oppositeLineId = (j + 1) + " " + n + " " + m;
                            currentLineId = j + " " + n + " " + m;
-                           leftEndBufferId = j + " " + (j + 1) + " " + (k - 1) + " v";
-                           leftEndBuffer = document.getElementById(leftEndBufferId);
+                           sideonepart = j + " " + (j + 1) + " " + (k - 1) + " v";
+                           sidefivepart = document.getElementById(sideonepart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "acrossPer" || currentLine == null || currentLine.className == "acrossPer") {
@@ -636,11 +636,11 @@ class Board extends React.Component {
                         m = m1;
                         while (oppositeLine != null && oppositeLine.className != "acrossPer" &&
                            currentLine != null && currentLine.className != "acrossPer" &&
-                           rightEndBuffer != null && rightEndBuffer.className == "downPer") {
+                           sidesixpart != null && sidesixpart.className == "downPer") {
                            oppositeLineId = (j + 1) + " " + n + " " + m;
                            currentLineId = j + " " + n + " " + m;
-                           rightEndBufferId = j + " " + (j + 1) + " " + k + " v";
-                           rightEndBuffer = document.getElementById(rightEndBufferId);
+                           sidetwopart = j + " " + (j + 1) + " " + k + " v";
+                           sidesixpart = document.getElementById(sidetwopart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "acrossPer" || currentLine == null || currentLine.className == "acrossPer") {
@@ -657,13 +657,13 @@ class Board extends React.Component {
                      var leftRectangle = false;
                      var rightRectangle = false;
 
-                     if (leftEndBuffer != null && leftEndBuffer.className != "downPer" && leftRectangleCheck) {
+                     if (sidefivepart != null && sidefivepart.className != "downPer" && leftRectangleCheck) {
                         leftRectangle = true;
                      }
                      else {
                         leftRectangle = false;
                      }
-                     if (rightEndBuffer != null && rightEndBuffer.className != "downPer" && rightRectangleCheck) {
+                     if (sidesixpart != null && sidesixpart.className != "downPer" && rightRectangleCheck) {
                         rightRectangle = true;
                      }
                      else {
@@ -671,17 +671,17 @@ class Board extends React.Component {
                      }
 
                      if (leftRectangle && rightRectangle) {
-                        var startId = leftEndBufferId.split(" ");
+                        var startId = sideonepart.split(" ");
                         var i = parseInt(startId[2], 10);
-                        var endId = rightEndBufferId.split(" ");
+                        var endId = sidetwopart.split(" ");
                         var j = parseInt(endId[2], 10);
                         var boxesMade = 0;
                         if (this.state.player % 3 == 0) {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay1";
+                                 document.getElementById(gridPartid).className = "boxPlay1";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay1";
@@ -691,10 +691,10 @@ class Board extends React.Component {
                         }
                         else if (this.state.player % 3 == 1) {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay2";
+                                 document.getElementById(gridPartid).className = "boxPlay2";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay2";
@@ -704,10 +704,10 @@ class Board extends React.Component {
                         }
                         else {
                            for (i; i < j; i++) {
-                              var boxId = startId[0] + " " + i;
-                              var box = document.getElementById(boxId);
+                              var gridPartid = startId[0] + " " + i;
+                              var box = document.getElementById(gridPartid);
                               if (box.className == "square") {
-                                 document.getElementById(boxId).className = "boxPlay3";
+                                 document.getElementById(gridPartid).className = "boxPlay3";
                                  var line = startId[0] + " " + startId[1] + " " + i + " v";
                                  boxesMade++;
                                  document.getElementById(line).className = "downPlay3";
@@ -728,18 +728,18 @@ class Board extends React.Component {
                var k1 = k;
                var case3 = true;
 
-               var endId1Buffer = j + " " + b + " " + (k + 1) + " v";
-               var endLine1Buffer = document.getElementById(endId1Buffer);
+               var checkBone = j + " " + b + " " + (k + 1) + " v";
+               var checkBonepart = document.getElementById(checkBone);
                var rectangle = true;
-               if (endLine1Buffer != null && endLine1Buffer.className == "downPer") {
-                  while (endLine1Buffer != null && endLine1Buffer.className == "downPer" && rectangle) {
-                     var endId1Buffer = j + " " + b + " " + (k + 1) + " v";
-                     var endLine1Buffer = document.getElementById(endId1Buffer);
-                     var botRightLineId = (j + 1) + " " + k + " " + (k + 1);
+               if (checkBonepart != null && checkBonepart.className == "downPer") {
+                  while (checkBonepart != null && checkBonepart.className == "downPer" && rectangle) {
+                     var checkBone = j + " " + b + " " + (k + 1) + " v";
+                     var checkBonepart = document.getElementById(checkBone);
+                     var bosidetwodoneId = (j + 1) + " " + k + " " + (k + 1);
                      var topRightLineId = j + " " + k + " " + (k + 1);
-                     var botRightLine = document.getElementById(botRightLineId);
+                     var bosidetwodone = document.getElementById(bosidetwodoneId);
                      var topRightLine = document.getElementById(topRightLineId);
-                     if (topRightLine == null || topRightLine.className == "acrossPer" || botRightLine == null || botRightLine.className == "acrossPer") {
+                     if (topRightLine == null || topRightLine.className == "acrossPer" || bosidetwodone == null || bosidetwodone.className == "acrossPer") {
                         rectangle = false;
                      }
                      k++;
@@ -750,8 +750,8 @@ class Board extends React.Component {
                      var n = parseInt(start[2], 10);
                      for (n; n < k; n++) {
                         if (this.state.player % 3 == 0) {
-                           var boxId = j + " " + n;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + n;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(j + " " + n).className = "boxPlay1";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay1";
@@ -760,8 +760,8 @@ class Board extends React.Component {
                            this.setState({ player1box: this.state.player1box + boxesMade })
                         }
                         else if (this.state.player % 3 == 1) {
-                           var boxId = j + " " + n;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + n;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(j + " " + n).className = "boxPlay2";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay2";
@@ -770,8 +770,8 @@ class Board extends React.Component {
                            this.setState({ player2box: this.state.player2box + boxesMade })
                         }
                         else {
-                           var boxId = j + " " + n;
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + n;
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
                               document.getElementById(j + " " + n).className = "boxPlay3";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay3";
@@ -784,18 +784,18 @@ class Board extends React.Component {
                   }
                }
                k = k1;
-               endId1Buffer = j + " " + b + " " + (k - 1) + " v";
-               endLine1Buffer = document.getElementById(endId1Buffer);
+               checkBone = j + " " + b + " " + (k - 1) + " v";
+               checkBonepart = document.getElementById(checkBone);
                rectangle = true;
-               if (endLine1Buffer != null && endLine1Buffer.className == "downPer") {
-                  while (endLine1Buffer != null && endLine1Buffer.className == "downPer" && rectangle) {
-                     var endId1Buffer = j + " " + b + " " + (k - 1) + " v";
-                     var endLine1Buffer = document.getElementById(endId1Buffer);
-                     var botLeftLineId = (j + 1) + " " + (k - 1) + " " + k;
+               if (checkBonepart != null && checkBonepart.className == "downPer") {
+                  while (checkBonepart != null && checkBonepart.className == "downPer" && rectangle) {
+                     var checkBone = j + " " + b + " " + (k - 1) + " v";
+                     var checkBonepart = document.getElementById(checkBone);
+                     var bosideonedoneId = (j + 1) + " " + (k - 1) + " " + k;
                      var topLeftLineId = j + " " + (k - 1) + " " + k;
-                     var botLeftLine = document.getElementById(botLeftLineId);
+                     var bosideonedone = document.getElementById(bosideonedoneId);
                      var topLeftLine = document.getElementById(topLeftLineId);
-                     if (topLeftLine == null || topLeftLine.className == "acrossPer" || botLeftLine == null || botLeftLine.className == "acrossPer") {
+                     if (topLeftLine == null || topLeftLine.className == "acrossPer" || bosideonedone == null || bosideonedone.className == "acrossPer") {
                         rectangle = false;
                      }
                      k--;
@@ -806,30 +806,30 @@ class Board extends React.Component {
                      var n = parseInt(start[2], 10);
                      for (n; n > k; n--) {
                         if (this.state.player % 3 == 0) {
-                           var boxId = j + " " + (n - 1)
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + (n - 1)
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
-                              document.getElementById(boxId).className = "boxPlay1";
+                              document.getElementById(gridPartid).className = "boxPlay1";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay1";
                               boxesMade++;
                            }
                            this.setState({ player1box: this.state.player1box + boxesMade })
                         }
                         else if (this.state.player % 3 == 1) {
-                           var boxId = j + " " + (n - 1)
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + (n - 1)
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
-                              document.getElementById(boxId).className = "boxPlay2";
+                              document.getElementById(gridPartid).className = "boxPlay2";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay2";
                               boxesMade++;
                            }
                            this.setState({ player2box: this.state.player2box + boxesMade })
                         }
                         else {
-                           var boxId = j + " " + (n - 1)
-                           var box = document.getElementById(boxId);
+                           var gridPartid = j + " " + (n - 1)
+                           var box = document.getElementById(gridPartid);
                            if (box.className == "square") {
-                              document.getElementById(boxId).className = "boxPlay3";
+                              document.getElementById(gridPartid).className = "boxPlay3";
                               document.getElementById(j + " " + (j + 1) + " " + n + " v").className = "downPlay3";
                               boxesMade++;
                            }
@@ -842,37 +842,37 @@ class Board extends React.Component {
                if (case3) {
                   j = j1;
                   k = k1;
-                  var topEndBufferId = j + " " + k + " " + (k + 1);
-                  var topEndBuffer = document.getElementById(topEndBufferId);
-                  var botEndBufferId = (j + 1) + " " + k + " " + (k + 1);
-                  var botEndBuffer = document.getElementById(botEndBufferId);
+                  var sidethreepart = j + " " + k + " " + (k + 1);
+                  var sidefourpart = document.getElementById(sidethreepart);
+                  var sidethreepartid = (j + 1) + " " + k + " " + (k + 1);
+                  var sidefourpartid = document.getElementById(sidethreepartid);
                   var oppositeLineId = j + " " + (j + 1) + " " + (k + 1) + " v";
                   var currentLineId = id;
                   var topRectangleCheck = true;
                   var botRectangleCheck = true;
-                  var checkFromLeft = false;
+                  var makeAcrosstwo = false;
                   var oppositeLine = document.getElementById(oppositeLineId);
                   var currentLine = document.getElementById(currentLineId);
 
                   if (oppositeLine == null || oppositeLine.className == "downPer") {
-                     checkFromLeft = true;
-                     topEndBufferId = j + " " + (k - 1) + " " + k;
-                     botEndBufferId = (j + 1) + " " + (k - 1) + " " + k;
+                     makeAcrosstwo = true;
+                     sidethreepart = j + " " + (k - 1) + " " + k;
+                     sidethreepartid = (j + 1) + " " + (k - 1) + " " + k;
                      oppositeLineId = j + " " + b + " " + (k - 1) + " v";
-                     topEndBuffer = document.getElementById(topEndBufferId);
-                     botEndBuffer = document.getElementById(botEndBufferId);
+                     sidefourpart = document.getElementById(sidethreepart);
+                     sidefourpartid = document.getElementById(sidethreepartid);
                      oppositeLine = document.getElementById(oppositeLineId);
                   }
 
-                  if (checkFromLeft == false) {
+                  if (makeAcrosstwo == false) {
                      if (oppositeLine != null && oppositeLine.className != "downPer") {
                         while (oppositeLine != null && oppositeLine.className != "downPer" &&
                            currentLine != null && currentLine.className != "downPer" &&
-                           botEndBuffer != null && botEndBuffer.className == "acrossPer") {
+                           sidefourpartid != null && sidefourpartid.className == "acrossPer") {
                            oppositeLineId = j + " " + (j + 1) + " " + (k + 1) + " v";
                            currentLineId = j + " " + (j + 1) + " " + k + " v";
-                           botEndBufferId = (j + 1) + " " + k + " " + (k + 1);
-                           botEndBuffer = document.getElementById(botEndBufferId);
+                           sidethreepartid = (j + 1) + " " + k + " " + (k + 1);
+                           sidefourpartid = document.getElementById(sidethreepartid);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "downPer" || currentLine == null || currentLine.className == "downPer") {
@@ -891,11 +891,11 @@ class Board extends React.Component {
                         oppositeLine = document.getElementById(oppositeLineId);
                         while (oppositeLine != null && oppositeLine.className != "downPer" &&
                            currentLine != null && currentLine.className != "downPer" &&
-                           topEndBuffer != null && topEndBuffer.className == "acrossPer") {
+                           sidefourpart != null && sidefourpart.className == "acrossPer") {
                            oppositeLineId = j + " " + (j + 1) + " " + (k + 1) + " v";
                            currentLineId = j + " " + (j + 1) + " " + k + " v";
-                           topEndBufferId = j + " " + k + " " + (k + 1);
-                           topEndBuffer = document.getElementById(topEndBufferId);
+                           sidethreepart = j + " " + k + " " + (k + 1);
+                           sidefourpart = document.getElementById(sidethreepart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "downPer" || currentLine == null || currentLine.className == "downPer") {
@@ -908,19 +908,19 @@ class Board extends React.Component {
                         }
 
                         if (botRectangleCheck && topRectangleCheck) {
-                           var start = topEndBufferId.split(" ");
+                           var start = sidethreepart.split(" ");
                            var i = start[0];
                            var n = start[1];
                            var m = start[2];
-                           var end = botEndBufferId.split(" ");
+                           var end = sidethreepartid.split(" ");
                            var j = end[0];
                            if (this.state.player % 3 == 1) {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 var box = document.getElementById(boxId);
+                                 var box = document.getElementById(gridPartid);
                                  if (box.className == "square") {
-                                    document.getElementById(boxId).className = "boxPlay1";
+                                    document.getElementById(gridPartid).className = "boxPlay1";
                                     document.getElementById(line).className = "acrossPlay1";
                                     boxesMade++;
                                  }
@@ -929,11 +929,11 @@ class Board extends React.Component {
                            }
                            else if (this.state.player % 3 == 1) {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 var box = document.getElementById(boxId);
+                                 var box = document.getElementById(gridPartid);
                                  if (box.className == "square") {
-                                    document.getElementById(boxId).className = "boxPlay2";
+                                    document.getElementById(gridPartid).className = "boxPlay2";
                                     document.getElementById(line).className = "acrossPlay2";
                                     boxesMade++;
                                  }
@@ -942,11 +942,11 @@ class Board extends React.Component {
                            }
                            else {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 var box = document.getElementById(boxId);
+                                 var box = document.getElementById(gridPartid);
                                  if (box.className == "square") {
-                                    document.getElementById(boxId).className = "boxPlay3";
+                                    document.getElementById(gridPartid).className = "boxPlay3";
                                     document.getElementById(line).className = "acrossPlay3";
                                     boxesMade++;
                                  }
@@ -966,11 +966,11 @@ class Board extends React.Component {
                         topRectangleCheck = true;
                         while (oppositeLine != null && oppositeLine.className != "downPer" &&
                            currentLine != null && currentLine.className != "downPer" &&
-                           botEndBuffer != null && botEndBuffer.className == "acrossPer") {
+                           sidefourpartid != null && sidefourpartid.className == "acrossPer") {
                            oppositeLineId = j + " " + (j + 1) + " " + (k - 1) + " v";
                            currentLineId = j + " " + (j + 1) + " " + k + " v";
-                           botEndBufferId = (j + 1) + " " + (k - 1) + " " + k;
-                           botEndBuffer = document.getElementById(botEndBufferId);
+                           sidethreepartid = (j + 1) + " " + (k - 1) + " " + k;
+                           sidefourpartid = document.getElementById(sidethreepartid);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "downPer" || currentLine == null || currentLine.className == "downPer") {
@@ -988,11 +988,11 @@ class Board extends React.Component {
                         oppositeLine = document.getElementById(oppositeLineId);
                         while (oppositeLine != null && oppositeLine.className != "downPer" &&
                            currentLine != null && currentLine.className != "downPer" &&
-                           topEndBuffer != null && topEndBuffer.className == "acrossPer") {
+                           sidefourpart != null && sidefourpart.className == "acrossPer") {
                            oppositeLineId = j + " " + (j + 1) + " " + (k - 1) + " v";
                            currentLineId = j + " " + (j + 1) + " " + k + " v";
-                           topEndBufferId = j + " " + (k - 1) + " " + k;
-                           topEndBuffer = document.getElementById(topEndBufferId);
+                           sidethreepart = j + " " + (k - 1) + " " + k;
+                           sidefourpart = document.getElementById(sidethreepart);
                            oppositeLine = document.getElementById(oppositeLineId);
                            currentLine = document.getElementById(currentLineId);
                            if (oppositeLine == null || oppositeLine.className == "downPer" || currentLine == null || currentLine.className == "downPer") {
@@ -1004,17 +1004,17 @@ class Board extends React.Component {
 
                         }
                         if (botRectangleCheck && topRectangleCheck) {
-                           var start = topEndBufferId.split(" ");
+                           var start = sidethreepart.split(" ");
                            var i = start[0];
                            var n = start[1];
                            var m = start[2];
-                           var end = botEndBufferId.split(" ");
+                           var end = sidethreepartid.split(" ");
                            var j = end[0];
                            if (this.state.player % 3 == 0) {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 document.getElementById(boxId).className = "boxPlay1";
+                                 document.getElementById(gridPartid).className = "boxPlay1";
                                  document.getElementById(line).className = "acrossPlay1";
                                  boxesMade++;
                               }
@@ -1022,9 +1022,9 @@ class Board extends React.Component {
                            }
                            else if (this.state.player % 3 == 1) {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 document.getElementById(boxId).className = "boxPlay2";
+                                 document.getElementById(gridPartid).className = "boxPlay2";
                                  document.getElementById(line).className = "acrossPlay2";
                                  boxesMade++;
                               }
@@ -1032,9 +1032,9 @@ class Board extends React.Component {
                            }
                            else {
                               for (i; i < j; i++) {
-                                 var boxId = i + " " + n;
+                                 var gridPartid = i + " " + n;
                                  var line = i + " " + n + " " + m;
-                                 document.getElementById(boxId).className = "boxPlay3";
+                                 document.getElementById(gridPartid).className = "boxPlay3";
                                  document.getElementById(line).className = "acrossPlay3";
                                  boxesMade++;
                               }
@@ -1066,7 +1066,7 @@ class Board extends React.Component {
 
          //first row
          for (var y = 0; y < 4; y++) {
-            row0.push(<input type="button" className="dot" onClick={this.handleDotClick} x={0} y={y} />)
+            row0.push(<input type="button" className="dot" onClick={this.ClickAction} x={0} y={y} />)
             var id = "0 " + y + " " + (y + 1);
             row0.push(<span className="acrossPer" id={id}></span>)
          }
@@ -1074,7 +1074,7 @@ class Board extends React.Component {
 
          // second row
          for (var y = 0; y < 4; y++) {
-            row1.push(<input type="button" className="dot" onClick={this.handleDotClick} x={1} y={y} />)
+            row1.push(<input type="button" className="dot" onClick={this.ClickAction} x={1} y={y} />)
             var idV = "0 " + "1 " + y + " v";
             row1.push(<span className="downPer" id={idV}></span>)
             var idS = "0 " + y;
@@ -1087,7 +1087,7 @@ class Board extends React.Component {
 
          // third row
          for (var y = 0; y < 4; y++) {
-            row2.push(<input type="button" className="dot" onClick={this.handleDotClick} x={2} y={y} />)
+            row2.push(<input type="button" className="dot" onClick={this.ClickAction} x={2} y={y} />)
             var idV = "1 " + "2 " + y + " v";  
             row2.push(<span className="downPer" id={idV}></span>)
             var idS = "1 " + y;  // row-1, index;
@@ -1100,7 +1100,7 @@ class Board extends React.Component {
 
          // forth row
          for (var y = 0; y < 4; y++) {
-            row3.push(<input type="button" className="dot" onClick={this.handleDotClick} x={3} y={y} />)
+            row3.push(<input type="button" className="dot" onClick={this.ClickAction} x={3} y={y} />)
             var idV = "2 " + "3 " + y + " v";   
             row3.push(<span className="downPer" id={idV}></span>)
             var idS = "2 " + y;  
@@ -1178,7 +1178,6 @@ class Board extends React.Component {
    }
 }
 
-// main render
 class Game extends React.Component {
    render() {
       return (
