@@ -1,4 +1,4 @@
-# aartsb.github.io
+# Dot and Boxes hosted on aartsb.github.io
 
 Dots and Boxes game:
 
